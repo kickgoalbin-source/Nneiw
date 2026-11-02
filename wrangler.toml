@@ -1,0 +1,17 @@
+name = "garda-cad"
+main = "worker.js"
+compatibility_date = "2025-09-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/healthz"]
+
+[[durable_objects.bindings]]
+name = "CAD"
+class_name = "Cad"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Cad"]
